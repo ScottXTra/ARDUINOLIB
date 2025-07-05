@@ -6,16 +6,17 @@
 #include "XClk.h"
 #include "driver/ledc.h"
 #include "driver/periph_ctrl.h"
+#include "esp_idf_version.h"
 
 bool ClockEnable(int pin, int Hz)
 {
     periph_module_enable(PERIPH_LEDC_MODULE);
 
     ledc_timer_config_t timer_conf;
-#if ESP_IDF_VERSION_MAJOR >= 5
-    timer_conf.duty_resolution = (ledc_timer_bit_t)1;
-#else
+#if defined(ESP_IDF_VERSION_MAJOR) && ESP_IDF_VERSION_MAJOR < 4
     timer_conf.bit_num = (ledc_timer_bit_t)1;
+#else
+    timer_conf.duty_resolution = (ledc_timer_bit_t)1;
 #endif
     timer_conf.freq_hz = Hz;
     timer_conf.speed_mode = LEDC_HIGH_SPEED_MODE;
