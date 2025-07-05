@@ -8,6 +8,7 @@
 #include "esp_intr_alloc.h"
 #include "esp_attr.h"
 #include "soc/gpio_struct.h"
+#include "driver/gpio.h"
 
 int I2SCamera::blocksReceived = 0;
 int I2SCamera::framesReceived = 0;
