@@ -12,6 +12,7 @@
 #include "soc/io_mux_reg.h"
 #include "driver/gpio.h"
 #include "driver/periph_ctrl.h"
+#include "esp_attr.h"
 #include "rom/lldesc.h"
 #include "XClk.h"
 #include "DMABuffer.h"

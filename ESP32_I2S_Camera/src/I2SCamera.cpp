@@ -5,6 +5,8 @@
 
 #include "I2SCamera.h"
 #include "Log.h"
+#include "esp_intr_alloc.h"
+#include "esp_attr.h"
 
 int I2SCamera::blocksReceived = 0;
 int I2SCamera::framesReceived = 0;
